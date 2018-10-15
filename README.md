@@ -21,4 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* The list of used models:
+1. User
+2. Test
+3. Question
+4. Admin
+5. Response
+6. TestCompleted
