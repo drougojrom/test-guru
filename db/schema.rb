@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_192958) do
+ActiveRecord::Schema.define(version: 2018_10_16_193636) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_192958) do
 
   create_table "responses", force: :cascade do |t|
     t.text "response"
+    t.boolean "correct", default: false
   end
 
   create_table "tests", force: :cascade do |t|
