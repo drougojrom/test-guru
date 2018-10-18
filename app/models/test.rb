@@ -1,6 +1,7 @@
 class Test < ApplicationRecord
 
   belongs_to :category
+  has_and_belongs_to_many :users
 
   scope :by_category, -> (title) { joins(:category).where(categories: {title: title }) }
 

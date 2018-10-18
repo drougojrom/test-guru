@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
-  attr_accessor :completed_tests
+  has_and_belongs_to_many :tests
 
   def completed_tests_for(level)
-    completed_tests.select { |test| test.level == level }
+    tests.select { |test| test.level == level }
   end
 end
