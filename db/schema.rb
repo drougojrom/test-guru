@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_142406) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "test_id"
+    t.integer "test_id", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_142406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "correct", default: false
-    t.integer "question_id"
+    t.integer "question_id", null: false
     t.index ["question_id"], name: "index_responses_on_question_id"
   end
 
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2018_10_22_142406) do
     t.integer "level", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
-    t.integer "user_id"
+    t.integer "category_id", null: false
+    t.integer "user_id", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
