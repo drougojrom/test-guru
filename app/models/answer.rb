@@ -6,7 +6,6 @@ class Answer < ApplicationRecord
 
   scope :correct, -> { where(correct: true) }
 
-
   private
 
   def validate_answers_count

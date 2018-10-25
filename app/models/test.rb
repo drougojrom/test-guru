@@ -15,6 +15,6 @@ class Test < ApplicationRecord
   scope :by_category, -> (title) { joins(:category).where(categories: {title: title }).order(title: :desc) }
 
   def self.sorted_by_category(title)
-    self.by_category(title).pluck(:title)
+    by_category(title).pluck(:title)
   end
 end
