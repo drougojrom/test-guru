@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :questions
 
+  validate :title, presence: true,
+    uniqueness: { scope: :level, message: 'this test already exists' }
+  validate :level, presence: true, numericality: { :greater_than_or_equal_to => 0 }
+
   scope :easy, -> { where(level: 0..1) }
   scope :intermediate, -> { where(level: 2..4) }
   scope :advanced, -> { where(level: 5..Float::INFINITY) }
