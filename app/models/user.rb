@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, length: { maximum: 244 },
     format: { with: VALID_EMAIL_REGEX },
-    uniqueness: true
+    uniqueness: { case_sensetive: false }
 
   def completed_tests_for(level)
     tests.where(level: level)
