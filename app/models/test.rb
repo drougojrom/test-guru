@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :questions
 
+  scope :easy, -> { where(level: 0..1) }
+  scope :intermediate, -> { where(level: 2..4) }
+  scope :advanced, -> { where(level: 5..Float::INFINITY) }
+
   def self.sorted_by_category(title)
     Test.joins(:category).where(categories: {title: title }).order(title: :desc).pluck(:title)
   end
