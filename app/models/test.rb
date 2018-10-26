@@ -12,9 +12,9 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :intermediate, -> { where(level: 2..4) }
   scope :advanced, -> { where(level: 5..Float::INFINITY) }
-  scope :by_category, -> (title) { joins(:category).where(categories: {title: title }).order(title: :desc) }
+  scope :by_category, -> (title) { joins(:category).where(categories: {title: title }) }
 
   def self.sorted_by_category(title)
-    by_category(title).pluck(:title)
+    by_category(title).order(title: :desc).pluck(:title)
   end
 end
