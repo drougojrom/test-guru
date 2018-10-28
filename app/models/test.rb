@@ -5,7 +5,16 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :questions
 
+  validates :title, presence: true,
+    uniqueness: { scope: :level, message: 'this test already exists' }
+  validates :level, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  scope :easy, -> { where(level: 0..1) }
+  scope :intermediate, -> { where(level: 2..4) }
+  scope :advanced, -> { where(level: 5..Float::INFINITY) }
+  scope :by_category, -> (title) { joins(:category).where(categories: {title: title }) }
+
   def self.sorted_by_category(title)
-    Test.joins(:category).where(categories: {title: title }).order(title: :desc).pluck(:title)
+    by_category(title).order(title: :desc).pluck(:title)
   end
 end
