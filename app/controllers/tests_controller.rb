@@ -13,7 +13,7 @@ class TestsController < ApplicationController
     render plain: test.inspect
   end
 
-private 
+  private
 
   def test_parameters
     params.require(:test).permit(:title, :level)
