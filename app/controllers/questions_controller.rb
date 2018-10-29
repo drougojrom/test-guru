@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
 
   def create
     @test.questions.create(question_params)
-    redirect_to test_questions_url
+    redirect_to test_questions_url(@test)
   end
 
   def destroy
