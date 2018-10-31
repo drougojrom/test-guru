@@ -1,21 +1,48 @@
 class TestsController < ApplicationController
   def index
+    @tests = Test.all
   end
 
   def show
+    @test = Test.find(params[:id])
   end
 
   def new
+    @test = Test.new
   end
 
   def create
-    test = Test.create(test_parameters)
-    render plain: test.inspect
+    @test = Test.new(test_parameters)
+    @test.author = User.first
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @test = Test.find(params[:id])
+  end
+
+  def update
+    @test = Test.find(params[:id])
+    if @test.update(test_parameters)
+      redirect_to @test
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test = Test.find(params[:id])
+    @test.destroy
+    redirect_to tests_path
   end
 
   private
 
   def test_parameters
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
