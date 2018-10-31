@@ -1,3 +1,4 @@
 <h1><%= @test.title %></h1>
 <h2>Level: <%= @test.level %></h2>
 <%= render @test.questions %>
+<p> <%= link_to 'Create new question', new_test_question_path(@test) %></p>
