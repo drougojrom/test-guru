@@ -1,0 +1,8 @@
+<h2><%= @question.body %></h2>
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.text %></li>
+  <% end %>
+</ul>
+
+<%= button_to "delete", @question, :method => :delete %>
