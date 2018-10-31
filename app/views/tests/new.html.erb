@@ -1,15 +1,29 @@
 <h1>Create New Test</h1>
-<form action="/tests", method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<%= form_with model: @test, local: true do |form| %>
+  <% if @test.errors.present? %>
+    <div>
+      <h2><%= pluralize(@test.errors.count, 'error') %> detected: </h2>
+      <ul>
+        <% @test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
-  <label for="test-title">Title:</label>
-  <input type="text" name="test[title]" id="test-title">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
   </p><br>
   <p>
-  <label for="test-level">Level:</label>
-  <input type="text" name="test[level]" id="test-level">
+  <%= form.label :level %>
+  <%= form.number_field :level %>
   </p><br>
 
-  <input type="submit" value="Create">
-</form>
+  <p>
+  <%= form.label :category_id %>
+  <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
 
+  <p><%= form.submit %></p>
+  </form>
+<% end %>
