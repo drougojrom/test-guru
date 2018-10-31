@@ -4,10 +4,5 @@
     <th>Title</th>
     <th>Level</th>
   </tr>
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= test.title %></td>
-      <td><%= test.level %></td>
-    </tr>
-  <% end %>
+  <%= render @tests %>
 </table>
