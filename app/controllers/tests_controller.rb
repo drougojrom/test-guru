@@ -21,6 +21,9 @@ class TestsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   private
 
   def test_parameters
