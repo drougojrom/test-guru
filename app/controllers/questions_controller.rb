@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     with: :rescue_question_not_found
 
   def index
+    Question.all
   end
 
   def new
