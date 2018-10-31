@@ -7,5 +7,9 @@
 <strong>Level:</strong>
 <%= @test.level %>
 </p>
+<p>
+Questions
+<%= render @test.questions %>
+</p>
 <%= link_to 'Back', tests_path %>
 <%= link_to 'Edit', edit_test_path(@test) %>

@@ -10,14 +10,29 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def create
     @test.questions.create(question_params)
     redirect_to test_questions_url(@test)
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy
