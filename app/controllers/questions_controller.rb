@@ -6,10 +6,6 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound,
     with: :rescue_question_not_found
 
-  def index
-    Question.all
-  end
-
   def new
     @question = Question.new
   end
@@ -20,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def create
     @test.questions.create(question_params)
-    redirect_to test_questions_url(@test)
+    redirect_to test_url(@test)
   end
 
   def edit
