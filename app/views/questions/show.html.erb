@@ -5,4 +5,5 @@
   <% end %>
 </ul>
 
-<%= button_to "delete", @question, :method => :delete %>
+<%= button_to "Delete", @question, :method => :delete %>
+<%= link_to 'Back', test_path(@question.test_id) %>
