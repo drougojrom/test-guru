@@ -14,13 +14,8 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
-
-    if @answer.save
-      redirect_to @answer, notice: 'Answer was successfully created'
-    else
-      render :new
-    end
+    @question.answers.create(answer_params)
+    redirect_to question_url(@question)
   end
 
   def update
@@ -46,6 +41,6 @@ private
   end
 
   def answer_params
-    params.require(:answer).permit(:body, :correct)
+    params.require(:answer).permit(:text, :correct, :question_id)
   end
 end
