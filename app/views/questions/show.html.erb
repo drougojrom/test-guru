@@ -10,5 +10,5 @@
 </ol>
 
 <%= link_to 'Edit', edit_question_path(@question) %> | 
-<%= button_to "Delete", @question, :method => :delete %> |
+<%= link_to "Delete", @question, :method => :delete %> |
 <%= link_to 'Back', test_path(@question.test_id) %>
