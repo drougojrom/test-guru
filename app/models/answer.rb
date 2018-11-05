@@ -9,7 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_count
-    binding.pry
     if question.answers.count >= 4
       errors.add(:question, 'can not have more than 4 answers')
     end
