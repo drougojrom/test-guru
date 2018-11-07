@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+
+.pos { color: #00FF00; }
+.neg { color: #ff0000; }

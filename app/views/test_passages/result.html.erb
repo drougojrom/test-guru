@@ -1,1 +1,8 @@
 <h1>Test <%= @test_passage.test.title %> was completed</h1>
+<% color = @test_passage.result >= 85 ? "pos" : "neg" %>
+<h2> You've finished the test with <div class="<%= color %>"><%= @test_passage.result %></div> success! </h2>
+<% if @test_passage.result >= 85 %>
+  <h2>You've successfully completed the test!</h2>
+<% else %>
+  <h2>You've failed the test</h2>
+<% end %>
