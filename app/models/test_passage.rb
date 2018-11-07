@@ -21,6 +21,14 @@ class TestPassage < ApplicationRecord
     (correct_questions / test.questions.count) * 100
   end
 
+  def current_question_number
+    total_questions_count - remaining_questions.count
+  end
+
+  def total_questions_count
+    test.questions.count
+  end
+
   private
 
   def before_validation_set_first_question
@@ -34,10 +42,14 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-    current_question.answers.correct
+    @correct_answerts ||= current_question.answers.correct
   end
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def remaining_questions
+    test.questions.order(:id).where('id > ?', current_question.id)
   end
 end
