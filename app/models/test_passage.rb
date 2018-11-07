@@ -10,7 +10,11 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
     self.current_question = next_question
-    save
+    save!
+  end
+  
+  def completed?
+    current_question.nil?
   end
 
   private
@@ -20,7 +24,6 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    binding.pry
     correct_answers_count = correct_answers.count
     correct_answers_count == correct_answers.where(id: answer_ids).count &&
     correct_answers_count == answer_ids.count
