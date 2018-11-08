@@ -18,7 +18,7 @@ class TestPassage < ApplicationRecord
   end
 
   def result
-    (correct_questions / test.questions.count) * 100
+    (correct_questions.to_f / test.questions.count.to_f) * 100
   end
 
   def current_question_number
