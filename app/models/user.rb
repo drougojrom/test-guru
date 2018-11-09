@@ -1,14 +1,14 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  include Auth
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: 'Test', foreign_key: 'user_id'
 
-  validates :email, presence: true, length: { maximum: 244 },
-    format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensetive: false }
+  has_secure_password
 
   def completed_tests_for(level)
     tests.where(level: level)
