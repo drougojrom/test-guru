@@ -2,8 +2,9 @@ class Test < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   belongs_to :category
-  has_and_belongs_to_many :users
   has_many :questions
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true,
     uniqueness: { scope: :level, message: 'this test already exists' }
