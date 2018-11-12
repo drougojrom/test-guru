@@ -17,7 +17,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_parameters)
-    @test.author = User.first
+    @test.author = current_user
     if @test.save
       redirect_to @test
     else
@@ -58,6 +58,6 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 end
