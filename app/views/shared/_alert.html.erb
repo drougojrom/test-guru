@@ -1,3 +1,7 @@
-<div class="alert alert-<%= config[:type].downcase %>">
-   <strong><%= config[:type] %>!</strong>&nbsp;<%%= message %>
-</div>
+<% if flash[:alert] %>
+  <p class="flash alert">
+  <div class="alert alert-<%= config[:type].downcase %>">
+    <strong><%= config[:type] %>!</strong>&nbsp;<%%= message %>
+  </div>
+  </p>
+<% end %>
