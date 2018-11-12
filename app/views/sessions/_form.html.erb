@@ -1,6 +1,8 @@
 <%= form_with url: sessions_path, local: true do |form| %>
   <% if flash[:alert] %>
-    <%= content_tag :p, flash[:alert], class: 'flash alert' %>
+    <p class="flash alert">
+    <%= flash_text_now(:alert, 'Are you a guru? Try to log in') %>
+    </p>
   <% end %>
   <p>
   <%= form.label :email %>
