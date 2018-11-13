@@ -1,5 +1,5 @@
 <%= form_with url: sessions_path, local: true do |form| %>
-  <%= flash_text_now(:alert, 'Are you a guru? Try to log in') %>
+  <%= flash_message %>
   <p>
   <%= form.label :email %>
   </p>
