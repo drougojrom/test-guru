@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
+    store_location
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_back_or tests_path
     else
-      store_location
       flash.now[:alert] = 'Are you a Guru? Try to login again?'
       render :new
     end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     redirect_to login_url
   end
 
-  private
+private
 
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
     unless current_user
       return redirect_to login_path, alert: 'Are you a guru? Try to log in again'
     end
-    cookies[:email] = current_user.email
   end
 
   def current_user
