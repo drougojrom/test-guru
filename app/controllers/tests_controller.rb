@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: %i[start]
 
   def index
     @tests = Test.all
@@ -15,8 +15,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_parameters)
-    @test.author = User.first
+    @test = current_user.tests.new(test_parameters)
     if @test.save
       redirect_to @test
     else
@@ -54,9 +53,5 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = User.first
   end
 end
