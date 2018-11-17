@@ -1,6 +1,5 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
-  before_action :authenticate_user!  
   before_action :find_question, only: [:show, :destroy]
   before_action :find_test, only: [:index, :new, :create]
 
@@ -27,7 +26,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to admin_question_path @question
     else
       render :edit
     end
