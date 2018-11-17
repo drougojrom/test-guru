@@ -8,8 +8,8 @@
 </p>
 <p>
 Questions
-<%= render @test.questions %>
+<%= render partial: 'questions/question', collection: @test.questions %>
 </p>
 <p> <%= link_to 'Create new question', new_test_question_path(@test) %></p>
-<%= link_to 'Back', tests_path %>
-<%= link_to 'Edit', edit_test_path(@test) %>
+<%= link_to 'Back', admin_tests_path %>
+<%= link_to 'Edit', edit_admin_test_path(@test) %>

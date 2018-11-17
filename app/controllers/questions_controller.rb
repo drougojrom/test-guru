@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
 
   def create
     @test.questions.create(question_params)
-    redirect_to test_url(@test)
+    redirect_to admin_test_url(@test)
   end
 
   def edit
