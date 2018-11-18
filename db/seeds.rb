@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 cat = Category.create!(title: 'Backend')
-user = User.create!(first_name: 'User', last_name: 'New', email: 'test1@test.com', password: '123asdaA', password_confirmation: '123asdaA')
+user = User.create!(first_name: 'User', last_name: 'New', email: 'test1@test.com', password: '123asdaA', password_confirmation: '123asdaA', type: 'Admin')
 test = Test.create!(title: 'Ruby', level: 1, category: cat, author: user)
 question = Question.create!(body: 'How to create a migration?', test: test)
 question2 = Question.create!(body: 'How to create a migration 2?', test: test)
