@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -36,13 +36,6 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
     redirect_to tests_path
-  end
-
-  def start
-    @test = Test.find(params[:id])
-    @user = current_user
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
   end
 
   private
