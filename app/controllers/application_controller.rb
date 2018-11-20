@@ -1,23 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  helper_method :current_user, :logged_in?
-
-  def authenticate_user!
-    unless current_user
-      return redirect_to login_path, alert: 'Are you a guru? Try to log in again'
-    end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
-
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
+  def after_sign_in_path_for(_user)
+    current_user.admin? ? admin_tests_path : tests_path
   end
 end
