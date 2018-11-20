@@ -1,6 +1,18 @@
 ru:
   hello: "Привет, мир"
 
+  helpers:
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+
   tests:
     index:
       header: "Доступные тесты"
