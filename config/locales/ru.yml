@@ -36,6 +36,11 @@ ru:
         success: "Тест успешно создан"
       index:
         header: "Доступные тесты"
+    nav:
+      welcome: "Добро пожаловать"
+      logout: "Выход"
+      guru: "Гуру"
+      header_title: "Панель администратора ТестГуру"
 
   tests_mailer:
     completed_test:

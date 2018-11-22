@@ -32,6 +32,11 @@ en:
         success: "Test was successfully created"
       index:
         header: "Tricky tests"
+    nav:
+      header_title: "Admin Panel"
+      welcome: "Welcome"
+      guru: "Guru"
+      logout: "Logout"
 
   tests_mailer:
     completed_test:
