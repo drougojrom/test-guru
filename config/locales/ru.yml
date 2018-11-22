@@ -54,6 +54,9 @@ ru:
       new_test: "Новый тест"
     questions:
       create: "Создать новый вопрос"
+    question:
+      answers: "Ответы"
+      new_answer: "Новый ответ"
 
     nav:
       welcome: "Добро пожаловать"
