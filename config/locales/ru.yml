@@ -65,6 +65,12 @@ ru:
       new_answer: "Новый ответ"
     answer:
       header: "Новый ответ"
+      question: "Вопрос"
+      answer: "Ответ"
+      correct: "Корректность"
+
+    answers:
+      edit: "Редактировать ответ"
 
     nav:
       welcome: "Добро пожаловать"
