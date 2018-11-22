@@ -24,6 +24,7 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+    start: "Начать"
 
   common:
     back: "Назад"
@@ -77,6 +78,13 @@ ru:
       logout: "Выход"
       guru: "Гуру"
       header_title: "Панель администратора ТестГуру"
+
+  header:
+    welcome: "Добро пожаловать"
+    logout: "Выход"
+    guru: "Гуру"
+    logout: "Выход"
+    dropdown: "Аккаунт"
 
   tests_mailer:
     completed_test:

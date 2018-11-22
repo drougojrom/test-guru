@@ -13,6 +13,7 @@ en:
   tests:
     index:
       header: "Tricky tests"
+    start: "Start"
 
   test_passages:
     result:
