@@ -1,6 +1,4 @@
 en:
-  hello: "Hello world"
-
   helpers:
     submit:
       test:
@@ -20,6 +18,14 @@ en:
     result:
       header: "The test %{title} was completed"
 
+  common:
+    back: "Back"
+    login: "Login"
+    edit: "Edit"
+    show: "Show"
+    delete: "Delete"
+    confirm: "Are you sure?"
+
   shared:
     errors:
       header:
@@ -32,6 +38,7 @@ en:
         success: "Test was successfully created"
       index:
         header: "Tricky tests"
+      edit: "Edit Test"
     nav:
       header_title: "Admin Panel"
       welcome: "Welcome"
