@@ -1,8 +1,8 @@
 <li>
   <%= answer.text %>
-  <%= link_to 'Show', admin_answer_path(answer) %>
-  <%= link_to 'Edit', edit_admin_answer_path(answer) %>
-  <%= link_to 'Delete', admin_answer_path(answer),
+  <%= link_to t('common.show'), admin_answer_path(answer) %>
+  <%= link_to t('common.edit'), edit_admin_answer_path(answer) %>
+  <%= link_to t('common.delete'), admin_answer_path(answer),
     method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+    data: { confirm: t('common.confirm') } %>
 </li>
