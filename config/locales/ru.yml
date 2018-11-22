@@ -5,10 +5,15 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      question:
+        body: "Вопрос"
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
 
   tests:
     index:
