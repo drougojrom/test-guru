@@ -50,6 +50,8 @@ en:
       welcome: "Welcome"
       guru: "Guru"
       logout: "Logout"
+    questions:
+      create: "Create new question"
 
   tests_mailer:
     completed_test:

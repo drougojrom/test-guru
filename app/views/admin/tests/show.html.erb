@@ -1,17 +1,19 @@
 <p>
-<h1>Title: <%= @test.title %></h1>
+<h1><%= t('helpers.label.test.title') %>: <%= @test.title %></h1>
 </p>
 
 <%= flash_message %>
 
 <p>
-<strong>Level:</strong>
+<strong><%= t('helpers.label.test.level') %>:</strong>
 <%= @test.level %>
 </p>
 <p>
-Questions
+<p>
+<%= t('common.questions') %>
+</p>
 <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </p>
-<p> <%= link_to 'Create new question', new_admin_test_question_path(@test) %></p>
-<%= link_to 'Back', admin_tests_path %>
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
+<p> <%= link_to t('admin.questions.create'), new_admin_test_question_path(@test) %></p>
+<%= link_to t('common.back'), admin_tests_path %>
+<%= link_to t('common.edit'), edit_admin_test_path(@test) %>
