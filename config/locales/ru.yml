@@ -5,6 +5,9 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      answer:
+        text: "Текст"
+        correct: "Корректность"
       question:
         body: "Вопрос"
     submit:
@@ -14,6 +17,9 @@ ru:
       question:
         create: "Создать вопрос"
         update: "Обновить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
 
   tests:
     index:
@@ -57,6 +63,8 @@ ru:
     question:
       answers: "Ответы"
       new_answer: "Новый ответ"
+    answer:
+      header: "Новый ответ"
 
     nav:
       welcome: "Добро пожаловать"
