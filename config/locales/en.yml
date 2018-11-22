@@ -25,6 +25,11 @@ en:
     show: "Show"
     delete: "Delete"
     confirm: "Are you sure?"
+    title: "Title"
+    level: "Level"
+    questions: "Questions"
+    actions: "Actions"
+
 
   shared:
     errors:
@@ -39,6 +44,7 @@ en:
       index:
         header: "Tricky tests"
       edit: "Edit Test"
+      new_test: "New Test"
     nav:
       header_title: "Admin Panel"
       welcome: "Welcome"

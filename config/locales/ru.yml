@@ -21,6 +21,10 @@ ru:
     show: "Показать"
     delete: "Удалить"
     confirm: "Вы уверены?"
+    title: "Название"
+    level: "Уровень"
+    questions: "Вопросы"
+    actions: "Действия"
 
   test_passages:
     result:
@@ -42,6 +46,7 @@ ru:
       index:
         header: "Доступные тесты"
       edit: "Редактировать тест"
+      new_test: "Новый тест"
     nav:
       welcome: "Добро пожаловать"
       logout: "Выход"
