@@ -54,6 +54,9 @@ en:
     questions:
       create: "Create new question"
 
+  footer:
+    credentials: "This app was build while taking a course at"
+
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test"

@@ -86,6 +86,9 @@ ru:
     logout: "Выход"
     dropdown: "Аккаунт"
 
+  footer:
+    credentials: "Это приложение было создано в рамках курса"
+
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест"
