@@ -1,0 +1,94 @@
+ru:
+  helpers:
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      answer:
+        text: "Текст"
+        correct: "Корректность"
+      question:
+        body: "Вопрос"
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+    start: "Начать"
+
+  common:
+    back: "Назад"
+    login: "Войти"
+    edit: "Редактировать"
+    show: "Показать"
+    delete: "Удалить"
+    confirm: "Вы уверены?"
+    title: "Название"
+    level: "Уровень"
+    questions: "Вопросы"
+    actions: "Действия"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно пройден"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные тесты"
+      edit: "Редактировать тест"
+      new_test: "Новый тест"
+    questions:
+      create: "Создать новый вопрос"
+    question:
+      answers: "Ответы"
+      new_answer: "Новый ответ"
+    answer:
+      header: "Новый ответ"
+      question: "Вопрос"
+      answer: "Ответ"
+      correct: "Корректность"
+
+    answers:
+      edit: "Редактировать ответ"
+
+    nav:
+      welcome: "Добро пожаловать"
+      logout: "Выход"
+      guru: "Гуру"
+      header_title: "Панель администратора ТестГуру"
+
+  header:
+    welcome: "Добро пожаловать"
+    logout: "Выход"
+    guru: "Гуру"
+    logout: "Выход"
+    dropdown: "Аккаунт"
+
+  footer:
+    credentials: "Это приложение было создано в рамках курса"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы только что завершили тест"
