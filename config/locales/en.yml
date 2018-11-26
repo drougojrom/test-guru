@@ -18,6 +18,9 @@ en:
   test_passages:
     result:
       header: "The test %{title} was completed"
+    gist:
+      success: "The gist was successfully created"
+      failure: "The gust creation failed"
 
   common:
     back: "Back"

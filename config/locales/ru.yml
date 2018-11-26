@@ -41,6 +41,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно пройден"
+    gist:
+      success: "Gist успешно создан"
+      failure: "Создание gist не удалось"
 
   shared:
     errors:
