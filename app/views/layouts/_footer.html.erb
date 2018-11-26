@@ -1,11 +1,15 @@
 <footer class="footer">
-  <small>
-    <%= t('footer.credentials') %> <%= link_to 'Thinknetica project', "http://thinknetica.com/", target: :_blank %>
-  </small>
-  <nav>
-    <ul>
-      <li><%= current_year %></li>
-      <li> Rom <%= github_link('drougojrom', 'test-guru') %></li></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <div class="float-left">
+      <small>
+        <%= t('footer.credentials') %> <%= link_to 'Thinknetica project', "http://thinknetica.com/", target: :_blank %>
+      </small>
+      <nav>
+        <ul>
+          <li><%= current_year %></li>
+          <li> Rom <%= github_link('drougojrom', 'test-guru') %></li></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </footer>
