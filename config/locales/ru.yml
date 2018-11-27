@@ -62,6 +62,7 @@ ru:
         header: "Доступные тесты"
       edit: "Редактировать тест"
       new_test: "Новый тест"
+      list: "Список тестов"
     questions:
       create: "Создать новый вопрос"
     question:
@@ -72,6 +73,10 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       correct: "Корректность"
+    gists:
+      id: "Id"
+      title: "Название"
+      user_email: "Почта создателя"
 
     answers:
       edit: "Редактировать ответ"

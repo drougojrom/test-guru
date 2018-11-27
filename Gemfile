@@ -32,6 +32,7 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'faraday'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
