@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unique_hash: MyText
+  'null': 
+  user: 
+  'null': 
+  question: 
+  'null': 
+
+two:
+  unique_hash: MyText
+  'null': 
+  user: 
+  'null': 
+  question: 
+  'null': 
