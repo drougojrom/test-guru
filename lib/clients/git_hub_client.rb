@@ -7,7 +7,11 @@ class GitHubClient
   end
 
   def create_gist(params)
-    response = @client.create_gist(params)
+    @client.create_gist(params)
+  end
+
+  def last_response
+    @client.last_response
   end
 
   private

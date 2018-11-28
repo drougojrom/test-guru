@@ -12,7 +12,7 @@ class GistQuestionService
   end
 
   def success?
-    !@result['id'].nil?
+    @client.last_response.status == 201
   end
 
   private
