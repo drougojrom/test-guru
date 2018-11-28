@@ -21,6 +21,7 @@ en:
     gist:
       success: "The gist was successfully created"
       failure: "The gust creation failed"
+      question_title: "A TestGuru question about"
 
   common:
     back: "Back"
