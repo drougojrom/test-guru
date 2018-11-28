@@ -20,11 +20,12 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-    @gist = current_user.gists.new(unique_hash: result['id'],
-                                      question: @test_passage.current_question)
-    flash_options = if @gist.save
-                      {notice: "#{t('.success')} #{result['html_url']}"}
+    gist_service = GistQuestionService.new(@test_passage.current_question)
+    gist_service.call
+    @gist = current_user.gists.new(unique_hash: gist_service.result[:id],
+                                   question: @test_passage.current_question)
+    flash_options = if gist_service.success? && @gist.save
+                      {notice: "#{t('.success')} #{gist_service.result['html_url']}"}
                     else
                       {alert: t('.failure') }
                     end

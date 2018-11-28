@@ -1,4 +1,6 @@
 class GistQuestionService
+  attr_accessor :result
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -10,6 +12,7 @@ class GistQuestionService
   end
 
   def success?
+    !@result['id'].nil?
   end
 
   private
