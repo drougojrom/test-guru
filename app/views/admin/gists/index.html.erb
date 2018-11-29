@@ -1,0 +1,13 @@
+<div>
+  <p>
+  <%= link_to t('admin.tests.list'), admin_tests_path %>
+  </p>
+  <table class="table">
+    <tr>
+      <th><%= t('admin.gists.id') %></th>
+      <th><%= t('admin.gists.title') %></th>
+      <th><%= t('admin.gists.user_email') %></th>
+    </tr>
+    <%= render @gists %>
+  </table>
+</div>

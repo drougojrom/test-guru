@@ -18,6 +18,10 @@ en:
   test_passages:
     result:
       header: "The test %{title} was completed"
+    gist:
+      success: "The gist was successfully created"
+      failure: "The gust creation failed"
+      question_title: "A TestGuru question about"
 
   common:
     back: "Back"
@@ -46,6 +50,7 @@ en:
         header: "Tricky tests"
       edit: "Edit Test"
       new_test: "New Test"
+      list: "Tests list"
     nav:
       header_title: "Admin Panel"
       welcome: "Welcome"
@@ -53,6 +58,10 @@ en:
       logout: "Logout"
     questions:
       create: "Create new question"
+    gists:
+      id: "Id"
+      title: "Title"
+      user_email: "Creator's email"
 
   footer:
     credentials: "This app was build while taking a course at"
