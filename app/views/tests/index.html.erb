@@ -1,8 +1,12 @@
 <h1><%= t('.header') %></h1>
 
 <table class="table table-striped">
-  <tr>
-    <th><%= t('common.title') %></th>
+  <tr class="sort-by-title pointer">
+    <th>
+      <%= t('common.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th><%= t('common.level') %></th>
     <th><%= t('common.questions') %></th>
     <th colspan="4"><%= t('common.actions') %></th>
