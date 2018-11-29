@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'faraday'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'octokit', '~> 4.0'
+gem 'octicons_helper'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

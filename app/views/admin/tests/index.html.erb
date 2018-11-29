@@ -10,7 +10,11 @@
 </p>
 <table class="table">
   <tr>
-    <th><%= t('common.title') %></th>
+    <th class="sort-by-title pointer">
+      <%= t('common.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th><%= t('common.level') %></th>
     <th><%= t('common.questions') %></th>
     <th colspan="4"><%= t('common.actions') %></th>
