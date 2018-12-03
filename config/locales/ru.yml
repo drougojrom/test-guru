@@ -57,6 +57,8 @@ ru:
 
   admin:
     tests:
+      form_inline:
+        submit: "Ок"
       create:
         success: "Тест успешно создан"
       index:
