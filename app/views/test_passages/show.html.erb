@@ -7,6 +7,9 @@
 </b>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+  <%= content_tag :div, '',
+    class: 'progress', data: {currentNumber: @test_passage.current_question_number, total: @test_passage.test.questions.count} %>
+
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :text, include_hidden: false do |b| %>
     <p>
     <%= b.check_box id: "answer_ids_#{b.object.id}" %>
