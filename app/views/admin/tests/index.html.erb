@@ -8,6 +8,9 @@
 <p>
 <%= link_to 'Gists list', admin_gists_path %>
 </p>
+<div>
+  <%= render 'shared/errors', resource: @test %>
+</div>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
