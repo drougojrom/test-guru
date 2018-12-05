@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_11_27_145426) do
 
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.text "text"
     t.datetime "created_at", null: false
