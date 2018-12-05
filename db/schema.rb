@@ -95,6 +95,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_145426) do
 
   add_foreign_key "gists", "users"
   add_foreign_key "gists", "questions"
-  add_foreign_key "test_passages", "questions"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
 
 end
