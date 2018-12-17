@@ -17,7 +17,12 @@ class User < ApplicationRecord
   end
 
   def test_passage(test)
-    test_passages.find_by(test_id: test.id)
+    current_test = test_passages.find_by(test_id: test.id) 
+    if current_test.completed?
+      test_passages.push(test)
+    else
+      test_passages.find_by(test_id: test.id)
+    end
   end
 
   def admin?
