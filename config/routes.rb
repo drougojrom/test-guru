@@ -27,6 +27,6 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index]
   end
 
-  get '/contacts', to: 'contacts#index', as: 'contacts'
+  get '/contacts', to: 'contacts#new', as: 'contacts'
   post '/contacts', to: 'contacts#submit'
 end

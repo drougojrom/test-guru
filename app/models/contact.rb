@@ -1,4 +1,8 @@
-class Contact < ApplicationRecord
+require 'active_model'
+
+class Contact
+
+  include ActiveModel::Model
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
