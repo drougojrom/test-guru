@@ -31,11 +31,6 @@ ActiveRecord::Schema.define(version: 2018_12_13_112900) do
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "gists", force: :cascade do |t|
     t.text "unique_hash", null: false
     t.integer "user_id", null: false
