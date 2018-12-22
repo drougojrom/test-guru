@@ -19,7 +19,7 @@ class TestPassage < ApplicationRecord
     end
     save!
   end
-  
+
   def completed?
     current_question.nil?
   end
@@ -37,11 +37,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result_success = result >= 85
-    if completed?
-      self.status = result_success ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
-    end
-    result_success ? "pos" : "neg"
+    result >= 85 ? "pos" : "neg"
   end
 
   def add_badges
@@ -63,7 +59,7 @@ class TestPassage < ApplicationRecord
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
     correct_answers_count == correct_answers.where(id: answer_ids).count &&
-    correct_answers_count == answer_ids.count
+      correct_answers_count == answer_ids.count
   end
 
   def correct_answers

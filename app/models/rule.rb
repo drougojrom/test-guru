@@ -4,7 +4,7 @@ class Rule < ApplicationRecord
   validates :rule_type, presence: true
 
   def passes?(test_passage)
-    case type
+    case rule_type
     when 'first_hit'
       first_hit?(test_passage)
     when 'by_level'
