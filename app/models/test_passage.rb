@@ -8,15 +8,14 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   after_validation :after_validation_set_next_question, on: :update
   before_create :define_status
+  before_save :before_save_update_status
 
   scope :passing, -> {where(status: statuses[:passing])}
   scope :passed, -> {where(status: statuses[:passed])}
   scope :failed, -> {where(status: statuses[:failed])}
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -76,5 +75,9 @@ class TestPassage < ApplicationRecord
 
   def define_status
     self.status = TestPassage.statuses[:passing]
+  end
+
+  def before_save_update_status
+    self.status = result >= 85 ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
   end
 end
