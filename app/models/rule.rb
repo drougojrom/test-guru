@@ -1,7 +1,7 @@
 class Rule < ApplicationRecord
   has_many :badges, dependent: :nullify
   validates :name, presence: true
-  validates :type, presence: true
+  validates :rule_type, presence: true
 
   def passes?(test_passage)
     case type
@@ -17,7 +17,7 @@ class Rule < ApplicationRecord
   end
 
   def first_hit?(test_passage)
-
+    test_passage.user.test_passages.passed.count == 1
   end
 
   def by_level?(test_passage)

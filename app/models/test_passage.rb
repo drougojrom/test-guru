@@ -44,6 +44,12 @@ class TestPassage < ApplicationRecord
     result_success ? "pos" : "neg"
   end
 
+  def add_badges
+    Badge.find_each do |badge|
+      user.badges.push(badge) if badge.suitable?(self)
+    end
+  end
+
   private
 
   def after_validation_set_next_question

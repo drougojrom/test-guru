@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
+  resources :badges, only: :index
+  resources :badges, only: :index do
+    get :my, on: :collection
+  end
+
   resources :tests, only: :index do
     member do
       post :start
@@ -17,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 
