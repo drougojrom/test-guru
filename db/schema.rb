@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_145426) do
+ActiveRecord::Schema.define(version: 2018_12_13_112900) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text "text"
@@ -92,8 +95,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_145426) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-
-  add_foreign_key "gists", "users"
   add_foreign_key "gists", "questions"
-
+  add_foreign_key "gists", "users"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
 end
