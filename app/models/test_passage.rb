@@ -1,4 +1,5 @@
 class TestPassage < ApplicationRecord
+  enum status: {:passing => 1, :passed => 2, :failed => 3}
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
@@ -6,6 +7,11 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   after_validation :after_validation_set_next_question, on: :update
+  before_create :define_status
+
+  scope :passing, -> {where(status: statuses[:passing])}
+  scope :passed, -> {where(status: statuses[:passed])}
+  scope :failed, -> {where(status: statuses[:failed])}
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -31,7 +37,11 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result >= 85 ? "pos" : "neg"
+    result_success = result >= 85
+    if completed?
+      self.status = result_success ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
+    end
+    result_success ? "pos" : "neg"
   end
 
   private
@@ -55,10 +65,14 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    return test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def remaining_questions
     test.questions.order(:id).where('id > ?', current_question.id)
+  end
+
+  def define_status
+    self.status = TestPassage.statuses[:passing]
   end
 end
