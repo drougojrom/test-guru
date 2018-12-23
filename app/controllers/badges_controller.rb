@@ -4,6 +4,7 @@ class BadgesController < ApplicationController
   end
 
   def my_badges
-
+    @user = current_user
+    @badges = @user.badges
   end
 end

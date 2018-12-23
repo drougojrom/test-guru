@@ -1,0 +1,11 @@
+<h1> <%= @user.full_name %> badges</h1>
+
+<table class="table table-striped">
+  <tr class="sort-by-title pointer">
+    <th>
+      <%= t('common.title') %>
+    </th>
+  </tr>
+  <%= render @badges %>
+</table>
+<%= link_to t('common.back'), root_url %>
