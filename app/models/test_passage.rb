@@ -13,6 +13,7 @@ class TestPassage < ApplicationRecord
   scope :passing, -> {where(status: statuses[:passing])}
   scope :passed, -> {where(status: statuses[:passed])}
   scope :failed, -> {where(status: statuses[:failed])}
+  scope :by_level, -> (level) { joins(:test).where(tests: {level: level}) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -46,7 +47,6 @@ class TestPassage < ApplicationRecord
   end
 
   private
-
   def after_validation_set_next_question
     self.current_question = next_question
   end
