@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :badges, only: :index
   resources :badges, only: :index do
-    get :my, on: :collection
+    get :my_badges, on: :collection
   end
 
   resources :tests, only: :index do
