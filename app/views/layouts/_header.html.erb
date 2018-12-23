@@ -12,6 +12,9 @@
           <li>
             <%= link_to t('header.logout'), destroy_user_session_path, method: :delete %>
           </li>
+          <li>
+            <%= link_to "Show badges", my_badges_badges_path %>
+          </li>
         </ul>
       </li>
     <% else %>
