@@ -1,4 +1,7 @@
 class TestPassage < ApplicationRecord
+
+  SUCCESS_SCORE = 85
+
   enum status: {:passing => 1, :passed => 2, :failed => 3}
   belongs_to :user
   belongs_to :test
@@ -7,7 +10,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   after_validation :after_validation_set_next_question, on: :update
-  before_create :define_status
+  before_create :set_default_status
   before_save :before_save_update_status
 
   scope :passing, -> {where(status: statuses[:passing])}
@@ -37,7 +40,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result >= 85 ? "pos" : "neg"
+    result >= SUCCESS_SCORE ? "pos" : "neg"
   end
 
   def add_badges
@@ -66,18 +69,18 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    return test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def remaining_questions
     test.questions.order(:id).where('id > ?', current_question.id)
   end
 
-  def define_status
+  def set_default_status
     self.status = TestPassage.statuses[:passing]
   end
 
   def before_save_update_status
-    self.status = result >= 85 ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
+    self.status = result >= SUCCESS_SCORE ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
   end
 end
