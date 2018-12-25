@@ -16,10 +16,6 @@ document.addEventListener('turbolinks:load', function() {
     }
     seconds--;
     countdownLabel.textContent = secondsToTime(seconds)    
-    if (seconds == 0) {
-      alert("Time is out! You'll be redirected to tests");
-      window.location.href = '/tests';
-    }
     setTimeout(createTimer, 1000)
   }
 
