@@ -16,6 +16,8 @@ class Rule < ApplicationRecord
     end
   end
 
+  private
+
   def first_hit?(test_passage)
     test_passage.user.test_passages.passed.count == 1
   end

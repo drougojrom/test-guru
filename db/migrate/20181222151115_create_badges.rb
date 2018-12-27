@@ -8,5 +8,6 @@ class CreateBadges < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :badges, :name
+    add_index :badges, :user_id, index: true
   end
 end

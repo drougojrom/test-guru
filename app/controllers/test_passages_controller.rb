@@ -4,11 +4,9 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
   before_action :check_timeout, only: %i[show update]
 
-  def show
-  end
+  def show; end
 
-  def result
-  end
+  def result; end
 
   def update
     Timeout::timeout(@test_passage.test.timer_value.seconds) do

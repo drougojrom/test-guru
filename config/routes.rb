@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  resources :badges, only: :index
   resources :badges, only: :index do
     get :my_badges, on: :collection
   end
