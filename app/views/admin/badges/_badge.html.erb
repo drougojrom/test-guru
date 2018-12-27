@@ -1,0 +1,11 @@
+<tr>
+  <td class="align-middle">
+    <%= content_tag :span, badge.name %>
+  </td>
+  <td>
+    <%= link_to t('common.delete'),
+                admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>
