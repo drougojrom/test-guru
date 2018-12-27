@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'badges/index'
+    get 'badges/new'
+    get 'badges/create'
+    get 'badges/destroy'
+  end
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { registrations: 'registration', sessions: 'sessions' }
 
   root 'tests#index'
+
+  resources :badges, only: :index do
+    get :my_badges, on: :collection
+  end
 
   resources :tests, only: :index do
     member do
@@ -17,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 

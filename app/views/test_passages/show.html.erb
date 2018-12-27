@@ -2,6 +2,7 @@
 <p>
 <b><%= @test_passage.current_question.body %></b>
 </p>
+<%= content_tag :p, '', class: 'countdownLabel', data: {seconds: @test_passage.test.timer_value} %>
 <b>
   The current question is <%= @test_passage.current_question_number %> / <%= @test_passage.test.questions.count %>
 </b>

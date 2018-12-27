@@ -1,4 +1,8 @@
 class TestPassage < ApplicationRecord
+
+  SUCCESS_SCORE = 85
+
+  enum status: {:passing => 1, :passed => 2, :failed => 3}
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
@@ -6,14 +10,19 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   after_validation :after_validation_set_next_question, on: :update
+  before_create :set_default_status
+  before_save :before_save_update_status
+
+  scope :passing, -> {where(status: statuses[:passing])}
+  scope :passed, -> {where(status: statuses[:passed])}
+  scope :failed, -> {where(status: statuses[:failed])}
+  scope :by_level, -> (level) { joins(:test).where(tests: {level: level}) }
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
-  
+
   def completed?
     current_question.nil?
   end
@@ -31,11 +40,23 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result >= 85 ? "pos" : "neg"
+    result >= SUCCESS_SCORE ? "pos" : "neg"
+  end
+
+  def add_badges
+    Badge.find_each do |badge|
+      user.badges.push(badge) if badge.suitable?(self)
+    end
+  end
+
+  def timeout?
+    current_time = Time.now.to_i
+    seconds = test.timer_value.seconds
+    created_time = updated_at.to_i
+    (current_time - created_time) - seconds > 0 
   end
 
   private
-
   def after_validation_set_next_question
     self.current_question = next_question
   end
@@ -47,7 +68,7 @@ class TestPassage < ApplicationRecord
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
     correct_answers_count == correct_answers.where(id: answer_ids).count &&
-    correct_answers_count == answer_ids.count
+      correct_answers_count == answer_ids.count
   end
 
   def correct_answers
@@ -60,5 +81,13 @@ class TestPassage < ApplicationRecord
 
   def remaining_questions
     test.questions.order(:id).where('id > ?', current_question.id)
+  end
+
+  def set_default_status
+    self.status = TestPassage.statuses[:passing]
+  end
+
+  def before_save_update_status
+    self.status = result >= SUCCESS_SCORE ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
   end
 end

@@ -1,0 +1,15 @@
+<h1><%= t(".header") %></h1>
+<p class="lead">
+  <%= link_to "New badge", new_admin_badge_path %>
+</p>
+<div>
+  <%= render 'shared/errors', resource: @test %>
+</div>
+<table class="table">
+  <tr>
+    <th class="sort-by-title pointer">
+      <%= "Name" %>
+    </th>
+  </tr>
+  <%= render @badges %>
+</table>

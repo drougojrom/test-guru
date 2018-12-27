@@ -1,5 +1,7 @@
 {
   "name": "test-guru",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery-countdown": "^2.2.0"
+  }
 }
